@@ -1,0 +1,27 @@
+<div class="container main-container">
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="pacman" [fullScreen]="true">
+        <p style="color: white"> Processando... </p>
+    </ngx-spinner>
+    <h1>Edit Gender</h1>
+    <hr>
+    <form novalidate="novalidate" (ngSubmit)="save()" [formGroup]="genderForm">
+        <app-global-errors [errors]="errors"></app-global-errors>
+        <input type="hidden" id="Id" name="Id" value="">
+        <div class="form-group">
+            <label class="control-label">Name</label>
+            &nbsp;<span class="required">*</span>
+            <div>
+                <input class="form-control" id="Name" type="text" placeholder="Name (requerido)" formControlName="Name"
+                    [ngClass]="{'is-invalid': displayMessage.Name }" />
+                <span class="text-danger" *ngIf="displayMessage.Name">
+                    <p [innerHTML]="displayMessage.Name"></p>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" [disabled]="!formValid()">&nbsp;
+            <a class="btn btn-info" [routerLink]="[urlList]">Back</a>
+        </div>
+    </form>
+    <book-list-summary [books]="books"></book-list-summary>
+</div>

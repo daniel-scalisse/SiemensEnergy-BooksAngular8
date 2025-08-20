@@ -1,0 +1,215 @@
+<div class="container main-container col-md-12">
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="pacman" [fullScreen]="true">
+        <p style="color: white"> Processando... </p>
+    </ngx-spinner>
+    <h1>Edit Book</h1>
+    <hr>
+    <form novalidate="novalidate" (ngSubmit)="save()" [formGroup]="bookForm">
+        <app-global-errors [errors]="errors"></app-global-errors>
+        <input type="hidden" id="Id" name="Id" value="">
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label class="control-label">Gender</label>
+                    &nbsp;<span class="required">*</span>
+                    <select class="form-control" id="GenderId" formControlName="GenderId"
+                        [ngClass]="{'is-invalid': displayMessage.GenderId }">
+                        <option *ngFor="let g of genders" value="{{ g.Key }}">{{ g.Value }}</option>
+                    </select>
+                    <span class="text-danger" *ngIf="displayMessage.GenderId">
+                        <p [innerHTML]="displayMessage.GenderId"></p>
+                    </span>
+                </div>
+                <div class="col-md-6">
+                    <label class="control-label">Author</label>
+                    &nbsp;<span class="required">*</span>
+                    <select class="form-control" id="AuthorId" formControlName="AuthorId"
+                        [ngClass]="{'is-invalid': displayMessage.AuthorId }">
+                        <option *ngFor="let a of authors" value="{{ a.Key }}">{{ a.Value }}</option>
+                    </select>
+                    <span class="text-danger" *ngIf="displayMessage.AuthorId">
+                        <p [innerHTML]="displayMessage.AuthorId"></p>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label class="control-label">Title</label>
+                    &nbsp;<span class="required">*</span>
+                    <div>
+                        <input class="form-control title" id="Title" type="text" placeholder="Title (requerido)"
+                            formControlName="Title" [ngClass]="{'is-invalid': displayMessage.Title }"
+                            maxlength="{{ maxLengthTitle }}" title="Maximum {{ maxLengthTitle }} characters." />
+                        <span class="text-danger" *ngIf="displayMessage.Title">
+                            <p [innerHTML]="displayMessage.Title"></p>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="control-label">Subtitle</label>
+                    <div>
+                        <input class="form-control subTitle" id="Subtitle" type="text" placeholder="Subtitle"
+                            formControlName="Subtitle" [ngClass]="{'is-invalid': displayMessage.Subtitle }"
+                            maxlength="{{ maxLengthSubTitle }}" title="Maximum {{ maxLengthSubTitle }} characters." />
+                        <span class="text-danger" *ngIf="displayMessage.Subtitle">
+                            <p [innerHTML]="displayMessage.Subtitle"></p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2">
+                    <label class="control-label">Year</label>
+                    &nbsp;<span class="required">*</span>
+                    <div>
+                        <input class="form-control year" id="Year" type="text" placeholder="Year" formControlName="Year"
+                            [ngClass]="{'is-invalid': displayMessage.Year }" maxlength="{{ maxLengthYear }}"
+                            title="Maximum {{ maxLengthYear }} characters." />
+                        <span class="text-danger" *ngIf="displayMessage.Year">
+                            <p [innerHTML]="displayMessage.Year"></p>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="control-label">Edition</label>
+                    &nbsp;<span class="required">*</span>
+                    <div>
+                        <input class="form-control edition" id="Edition" type="text" placeholder="Edition"
+                            formControlName="Edition" [ngClass]="{'is-invalid': displayMessage.Edition }"
+                            maxlength="{{ maxLengthEdition }}" title="Maximum {{ maxLengthEdition }} characters." />
+                        <span class="text-danger" *ngIf="displayMessage.Edition">
+                            <p [innerHTML]="displayMessage.Edition"></p>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="control-label">Page Quantity</label>
+                    &nbsp;<span class="required">*</span>
+                    <div>
+                        <input class="form-control pageQuantity" id="PageQuantity" type="text"
+                            placeholder="Page Quantity" formControlName="PageQuantity"
+                            [ngClass]="{'is-invalid': displayMessage.QtPag }" maxlength="{{ maxLengthQtPag }}"
+                            title="Maximum {{ maxLengthQtPag }} characters." />
+                        <span class="text-danger" *ngIf="displayMessage.PageQuantity">
+                            <p [innerHTML]="displayMessage.PageQuantity"></p>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label">ISBN</label>
+                    &nbsp;<span class="required">*</span>
+                    <div>
+                        <input class="form-control isbn" id="ISBN" type="text" placeholder="ISBN" formControlName="ISBN"
+                            [ngClass]="{'is-invalid': displayMessage.ISBN }" maxlength="{{ maxLengthISBN }}"
+                            title="Maximum {{ maxLengthISBN }} characters." />
+                        <span class="text-danger" *ngIf="displayMessage.ISBN">
+                            <p [innerHTML]="displayMessage.ISBN"></p>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label class="control-label">Barcode</label>
+                    &nbsp;<span class="required">*</span>
+                    <div>
+                        <input class="form-control barcode" id="Barcode" type="text" placeholder="Barcode"
+                            formControlName="Barcode" [ngClass]="{'is-invalid': displayMessage.Barcode }"
+                            maxlength="{{ maxLengthBarcode }}" title="Maximum {{ maxLengthBarcode }} characters." />
+                        <span class="text-danger" *ngIf="displayMessage.Barcode">
+                            <p [innerHTML]="displayMessage.Barcode"></p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-2">
+                    <label class="control-label">Value</label>
+                    <div>
+                        <input class="form-control value" id="Value" type="text" placeholder="Value"
+                            formControlName="Value" [ngClass]="{'is-invalid': displayMessage.Value }"
+                            maxlength="{{ maxLengthValue }}" title="Maximum {{ maxLengthValue }} characters." />
+                        <span class="text-danger" *ngIf="displayMessage.Value">
+                            <p [innerHTML]="displayMessage.Value"></p>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="control-label">Purchase Date</label>
+                    <div>
+                        <input class="form-control date" id="PurchaseDate" type="date" placeholder="Purchase Date"
+                            formControlName="PurchaseDate" [ngClass]="{'is-invalid': displayMessage.PurchaseDate }"
+                            maxlength="{{ maxLengthDate }}" title="Maximum {{ maxLengthDate }} characters." />
+                        <span class="text-danger" *ngIf="displayMessage.PurchaseDate">
+                            <p [innerHTML]="displayMessage.PurchaseDate"></p>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-check-label">Dedication</label>
+                    <div>
+                        <input class="form-control form-check-inline" id="Dedication" type="checkbox"
+                            formControlName="Dedication" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-12">
+                    <label class="control-label">Observation</label>
+                    <div>
+                        <input class="form-control obs" id="Observation" type="text" placeholder="Observation"
+                            formControlName="Observation" [ngClass]="{'is-invalid': displayMessage.Observation }"
+                            maxlength="{{ maxLengthObservation }}"
+                            title="Maximum {{ maxLengthObservation }} characters." />
+                        <span class="text-danger" *ngIf="displayMessage.Observation">
+                            <p [innerHTML]="displayMessage.Observation"></p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label class="control-label">Image</label>
+                    &nbsp;<span class="required">*</span>
+                    <div class="custom-file">
+                        <input type="file" accept="image/jpeg,image/png" class="custom-file-input" id="Image"
+                            formControlName="Image" (change)="onFileChange($event)"
+                            [ngClass]="{'is-invalid': displayMessage.Image }" multiple>
+                        <label data-browse="Search" style="width:400px" class="custom-file-label"></label>
+                        <span *ngIf="imageName"><br>{{imageName}}<br></span>
+                        <span class="text-danger" *ngIf="displayMessage.Image">
+                            <p [innerHTML]="displayMessage.Image"></p>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="control-label">Inclusion Date</label>
+                    <div>
+                        <input class="form-control" id="InclusionDate" type="text" formControlName="InclusionDate"
+                            readonly="readonly" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" [disabled]="!formValid()">&nbsp;
+            <a class="btn btn-info" [routerLink]="[urlList]">Back</a>
+        </div>
+    </form>
+    <div class="form-group">
+        <div class="col-md-12 col-md-offset-2">
+            <span>Formulario valid: {{ bookForm.valid }}</span>&nbsp;&nbsp;-
+            <span>Formulario touched: {{ bookForm.touched }}</span>&nbsp;&nbsp;-
+            <span>Formulario dirty: {{ bookForm.dirty }}</span>&nbsp;&nbsp;&nbsp;-<br>
+            <span>Formulario: {{ formResult }}</span>
+        </div>
+    </div>
+</div>

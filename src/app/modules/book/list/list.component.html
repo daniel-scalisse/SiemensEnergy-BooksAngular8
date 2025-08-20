@@ -1,0 +1,74 @@
+<div class="container main-container col-md-12">
+    <h1>List of Books</h1>
+    <app-global-errors [errors]="errors"></app-global-errors>
+    <div id="divF" class="row">
+        <div class="col-md-2">
+            <a class="btn btn-info" [routerLink]="['/book/add']">New Book</a>
+        </div>
+        <div class="col-md-5">
+            <div class="input-group">
+                <input type="text" value="" [(ngModel)]="query" placeholder="Type what you are looking for..."
+                    class="form-control" maxlength="50" />
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" (click)="startSearch()">
+                        <span class="fa fa-search"></span>
+                    </button>&nbsp;
+                    <button class="btn btn-primary" type="button" (click)="clear()">
+                        <span class="fa fa-eraser"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th></th>
+                <th>Id</th>
+                <th>Gender</th>
+                <th>Author</th>
+                <th>Title</th>
+                <th>Subtitle</th>
+                <th>Year</th>
+                <th>Edition</th>
+                <th>Page Quantity</th>
+                <th>ISBN</th>
+                <th>Value</th>
+                <th>Purchase Date</th>
+                <th>Inclusion Date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let b of books">
+                <td><img src="{{b.ImageUpload}}" style="max-width:100px;max-height:100px"></td>
+                <td class="text-right">{{b.Id}}</td>
+                <td>{{b.GenderName}}</td>
+                <td>{{b.AuthorName}}</td>
+                <td>{{b.Title}}</td>
+                <td>{{b.Subtitle }}</td>
+                <td class="text-center">{{b.Year}}</td>
+                <td class="text-right">{{b.Edition}}</td>
+                <td class="text-right">{{b.PageQuantity}}</td>
+                <td>{{b.ISBN}}</td>
+                <td class="text-right">{{b.Value | currency : 'BRL'}}</td>
+                <td class="text-center">{{b.PurchaseDate | date:'dd/MM/yyyy'}}</td>
+                <td class="text-center">{{b.InclusionDate | date:'dd/MM/yyyy'}}</td>
+                <td class="text-right">
+                    <a class="btn btn-info" [routerLink]="['/book/details',b.Id]">
+                        <span class="fa fa-search"></span>
+                    </a>&nbsp;
+                    <a class="btn btn-warning" [routerLink]="['/book/edit',b.Id]">
+                        <span class="fa fa-pencil-alt"></span>
+                    </a>&nbsp;
+                    <a class="btn btn-danger" [routerLink]="['/book/delete',b.Id]">
+                        <span class="fa fa-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <app-pagination [pagesSize]="pagesSize" [pageSize]="pageSize" [page]="page"
+        (changePageSize)="changePageSize($event)" (toFirst)="toFirst()" (toPrevious)="toPrevious()" (toNext)="toNext()"
+        (toLast)="toLast()" [pages]="pages" [total]="total"></app-pagination>
+</div>

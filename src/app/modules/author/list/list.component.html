@@ -1,0 +1,54 @@
+<div class="container main-container">
+    <h1>List of Authors</h1>
+    <app-global-errors [errors]="errors"></app-global-errors>
+    <div id="divF" class="row">
+        <div class="col-md-2">
+            <a class="btn btn-info" [routerLink]="['/author/add']">New Author</a>
+        </div>
+        <div class="col-md-5">
+            <div class="input-group">
+                <input type="text" value="" [(ngModel)]="query" placeholder="Type what you are looking for..."
+                    class="form-control" maxlength="50" />
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" (click)="startSearch()">
+                        <span class="fa fa-search"></span>
+                    </button>&nbsp;
+                    <button class="btn btn-primary" type="button" (click)="clear()">
+                        <span class="fa fa-eraser"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th style="width: 10%;">Id</th>
+                <th style="width: 40%;">Name</th>
+                <th style="width: 30%;">Inclusion Date</th>
+                <th style="width: 20%;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of authors">
+                <td>{{ a.Id }}</td>
+                <td>{{ a.Name }}</td>
+                <td>{{ a.InclusionDate | date:'dd/MM/yyyy HH:mm:ss'}}</td>
+                <td class="text-right">
+                    <a class="btn btn-info" [routerLink]="['/author/details',a.Id]">
+                        <span class="fa fa-search"></span>
+                    </a>&nbsp;
+                    <a class="btn btn-warning" [routerLink]="['/author/edit',a.Id]">
+                        <span class="fa fa-pencil-alt"></span>
+                    </a>&nbsp;
+                    <a class="btn btn-danger" [routerLink]="['/author/delete',a.Id]">
+                        <span class="fa fa-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <app-pagination [pagesSize]="pagesSize" [pageSize]="pageSize" [page]="page"
+        (changePageSize)="changePageSize($event)" (toFirst)="toFirst()" (toPrevious)="toPrevious()" (toNext)="toNext()"
+        (toLast)="toLast()" [pages]="pages" [total]="total"></app-pagination>
+</div>

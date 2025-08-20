@@ -1,0 +1,32 @@
+<div class="container main-container">
+    <h1>Gender Details - {{ gender.Name }}</h1>
+    <div>
+        <h4>Read-only information</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label class="control-label">Id</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ gender.Id }}
+            </dd>
+            <dt class="col-sm-2">
+                <label class="control-label">Name</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ gender.Name }}
+            </dd>
+            <dt class="col-sm-2">
+                <label class="control-label">Inclusion Date</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ gender.InclusionDate | date:'dd/MM/yyyy HH:mm:ss.SSS' }}
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a class="btn btn-dark" [routerLink]="['/gender/edit',gender.Id]">Edit</a>&nbsp;
+        <a class="btn btn-info" [routerLink]="['/gender/list']">Back</a>
+    </div>
+    <book-list-summary [books]="books"></book-list-summary>
+</div>

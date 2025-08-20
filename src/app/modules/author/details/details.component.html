@@ -1,0 +1,32 @@
+<div class="container main-container">
+    <h1>Author Details - {{ author.Name }}</h1>
+    <div>
+        <h4>Read-only information</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label class="control-label">Id</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ author.Id }}
+            </dd>
+            <dt class="col-sm-2">
+                <label class="control-label">Name</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ author.Name }}
+            </dd>
+            <dt class="col-sm-2">
+                <label class="control-label">Inclusion Date</label>
+            </dt>
+            <dd class="col-sm-10">
+                {{ author.InclusionDate | date:'dd/MM/yyyy HH:mm:ss.SSS' }}
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a class="btn btn-dark" [routerLink]="['/author/edit',author.Id]">Edit</a>&nbsp;
+        <a class="btn btn-info" [routerLink]="['/author/list']">Back</a>
+    </div>
+    <book-list-summary [books]="books"></book-list-summary>
+</div>

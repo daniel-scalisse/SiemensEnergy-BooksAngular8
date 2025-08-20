@@ -1,0 +1,32 @@
+<hr>
+<h4>{{title}}</h4>
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Gender</th>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Subtitle</th>
+            <th>Year</th>
+            <th>Edition</th>
+            <th>Page Quantity</th>
+            <th>ISBN</th>
+            <th>Value</th>
+            <th>Purchase Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let b of books">
+            <td>{{ b.GenderName }}</td>
+            <td>{{ b.AuthorName }}</td>
+            <td>{{ b.Title }}</td>
+            <td>{{ b.Subtitle }}</td>
+            <td class="text-center">{{ b.Year }}</td>
+            <td class="text-right">{{ b.Edition }}</td>
+            <td class="text-right">{{ b.PageQuantity }}</td>
+            <td>{{ b.ISBN }}</td>
+            <td class="text-right">{{ b.Value | currency : 'BRL'}}</td>
+            <td class="text-center">{{ b.PurchaseDate | date:'dd/MM/yyyy' }}</td>
+        </tr>
+    </tbody>
+</table>
