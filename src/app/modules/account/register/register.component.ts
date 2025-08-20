@@ -96,7 +96,7 @@ export class RegisterComponent extends FormBase implements OnInit, AfterViewInit
 
     this.accountService.LocalStorage.saveLocalUserData(response);
 
-    let toast = this.toastr.success('Registro realizado com sucesso!', 'Bem vindo!!!');
+    let toast = this.toastr.success('Registration completed successfully!', 'Welcome!!!');
     if (toast) {
       /*
       Toast retorna uma Observable, então usa subscribe pra criar um gatilho pra quando acontecer o evento.
@@ -111,6 +111,6 @@ export class RegisterComponent extends FormBase implements OnInit, AfterViewInit
 
   processarFalha(fail: any) {
     this.errors = fail.error.errors;
-    this.toastr.error('Ocorreu um erro!', 'Opa :(');
+    this.toastr.error('An error occurred!', 'Ops :(');
   }
 }

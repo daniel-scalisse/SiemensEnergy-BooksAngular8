@@ -35,7 +35,7 @@
                     <label class="control-label">Title</label>
                     &nbsp;<span class="required">*</span>
                     <div>
-                        <input class="form-control title" id="Title" type="text" placeholder="Title (requerido)"
+                        <input class="form-control title" id="Title" type="text" placeholder="Title (required)"
                             formControlName="Title" [ngClass]="{'is-invalid': displayMessage.Title }"
                             maxlength="{{ maxLengthTitle }}" title="Maximum {{ maxLengthTitle }} characters." />
                         <span class="text-danger" *ngIf="displayMessage.Title">
