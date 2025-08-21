@@ -9,6 +9,7 @@ import { AuthorService } from '../services/author.service';
 import { AuthorFormBase } from '../author.formbase';
 import { AuthorDetails } from '../author';
 import { BookView } from '../../book/book';
+import { FormatDateTime } from 'src/app/utils/format-date';
 
 @Component({
   selector: 'app-edit',
@@ -20,6 +21,7 @@ export class EditComponent extends AuthorFormBase implements OnInit, AfterViewIn
   @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
   details: AuthorDetails;
   books: BookView[];
+  inclusionDate: Date;//Auxiliar para devolver no post.
 
   constructor(
     private fb: FormBuilder,
@@ -34,6 +36,8 @@ export class EditComponent extends AuthorFormBase implements OnInit, AfterViewIn
     this.details = this.route.snapshot.data['author'];
     this.author = this.details.Author;
     this.books = this.details.Books;
+
+    this.inclusionDate = this.author.InclusionDate;
   }
 
   ngOnInit() {
@@ -51,7 +55,9 @@ export class EditComponent extends AuthorFormBase implements OnInit, AfterViewIn
   preencherForm() {
     this.authorForm.patchValue({
       Id: this.author.Id,
-      Name: this.author.Name
+      Name: this.author.Name,
+      //Formata para mostrar no input.
+      InclusionDate: FormatDateTime.ToEn(this.author.InclusionDate)
     });
   }
 
@@ -63,6 +69,8 @@ export class EditComponent extends AuthorFormBase implements OnInit, AfterViewIn
     if (this.formValid()) {
       this.author = Object.assign({}, this.author, this.authorForm.value);
       super.clearTextFields();
+
+      this.author.InclusionDate = this.inclusionDate;
 
       this.service.update(this.author)
         .subscribe(

@@ -9,6 +9,7 @@ import { GenderService } from '../services/gender.service';
 import { GenderFormBase } from '../gender.formbase';
 import { GenderDetails } from '../gender';
 import { BookView } from '../../book/book';
+import { FormatDateTime } from 'src/app/utils/format-date';
 
 @Component({
   selector: 'app-edit',
@@ -20,6 +21,7 @@ export class EditComponent extends GenderFormBase implements OnInit, AfterViewIn
   @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
   details: GenderDetails;
   books: BookView[];
+  inclusionDate: Date;//Auxiliar para devolver no post.
 
   constructor(
     private fb: FormBuilder,
@@ -34,6 +36,8 @@ export class EditComponent extends GenderFormBase implements OnInit, AfterViewIn
     this.details = this.route.snapshot.data['gender'];
     this.gender = this.details.Gender;
     this.books = this.details.Books;
+
+    this.inclusionDate = this.gender.InclusionDate;
   }
 
   ngOnInit() {
@@ -51,7 +55,9 @@ export class EditComponent extends GenderFormBase implements OnInit, AfterViewIn
   preencherForm() {
     this.genderForm.patchValue({
       Id: this.gender.Id,
-      Name: this.gender.Name
+      Name: this.gender.Name,
+      //Formata para mostrar no input.
+      InclusionDate: FormatDateTime.ToEn(this.gender.InclusionDate)
     });
   }
 
@@ -63,6 +69,8 @@ export class EditComponent extends GenderFormBase implements OnInit, AfterViewIn
     if (this.formValid()) {
       this.gender = Object.assign({}, this.gender, this.genderForm.value);
       super.clearTextFields();
+
+      this.gender.InclusionDate = this.inclusionDate;
 
       this.service.update(this.gender)
         .subscribe(

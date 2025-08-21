@@ -38,7 +38,8 @@ export abstract class AuthorFormBase extends FormBase {
     protected configValidators(fb: FormBuilder) {
         this.authorForm = fb.group({
             Id: 0,
-            Name: ['', [Validators.required, Validators.minLength(this.minLengthName), Validators.maxLength(this.maxLengthName)]]
+            Name: ['', [Validators.required, Validators.minLength(this.minLengthName), Validators.maxLength(this.maxLengthName)]],
+            InclusionDate: []
         });
     }
 
