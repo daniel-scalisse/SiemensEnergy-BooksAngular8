@@ -33,7 +33,7 @@ export class AddComponent extends AuthorFormBase implements OnInit, AfterViewIni
   }
 
   save() {
-    if (this.formValid()) {
+    if (super.formValid()) {
       this.author = Object.assign({}, this.author, this.authorForm.value);
       this.formResult = JSON.stringify(this.author);
       super.clearTextFields();

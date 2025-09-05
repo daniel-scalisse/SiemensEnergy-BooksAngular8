@@ -33,7 +33,7 @@ export class AddComponent extends GenderFormBase implements OnInit, AfterViewIni
   }
 
   save() {
-    if (this.formValid()) {
+    if (super.formValid()) {
       this.gender = Object.assign({}, this.gender, this.genderForm.value);
       this.formResult = JSON.stringify(this.gender);
       super.clearTextFields();

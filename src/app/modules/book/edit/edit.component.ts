@@ -80,7 +80,7 @@ export class EditComponent extends BookFormBase implements OnInit, AfterViewInit
   }
 
   save() {
-    if (this.formValid()) {
+    if (super.formValid()) {
       super.setObjToAPI();
       super.clearTextFields();
 

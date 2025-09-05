@@ -66,7 +66,7 @@ export class EditComponent extends AuthorFormBase implements OnInit, AfterViewIn
   }
 
   save() {
-    if (this.formValid()) {
+    if (super.formValid()) {
       this.author = Object.assign({}, this.author, this.authorForm.value);
       super.clearTextFields();
 
