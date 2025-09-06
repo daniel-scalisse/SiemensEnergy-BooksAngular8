@@ -11,8 +11,6 @@ import { PagedDTO } from 'src/app/base-dto/pagedDTO';
 @Injectable()
 export class GenderService extends BaseService {
 
-    gender: Gender = new Gender();
-
     constructor(private http: HttpClient) { super(); }
 
     listAll(ps: number, p: number, q: string): Observable<PagedDTO> {

@@ -11,8 +11,6 @@ import { PagedDTO } from 'src/app/base-dto/pagedDTO';
 @Injectable()
 export class AuthorService extends BaseService {
 
-    author: Author = new Author();
-
     constructor(private http: HttpClient) { super(); }
 
     listAll(ps: number, p: number, q: string): Observable<PagedDTO> {
