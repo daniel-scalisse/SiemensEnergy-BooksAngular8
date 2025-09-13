@@ -29,7 +29,7 @@ const routes: Routes = [
       .then(m => m.AccountModule)
   },
   { path: 'access-denied', component: AccessDeniedComponent },
-  { path: 'nao-encontrado', component: NotFoundComponent },
+  { path: 'not-found', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent }];
 
 @NgModule({
