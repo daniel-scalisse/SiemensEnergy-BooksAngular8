@@ -30,8 +30,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         MenuLoginComponent,
         HomeComponent,
         FooterComponent,
-        NotFoundComponent
-        AccessDeniedComponent,
+        NotFoundComponent,
+        AccessDeniedComponent
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
