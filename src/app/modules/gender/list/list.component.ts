@@ -6,7 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Pagination } from 'src/app/utils/pagination';
 
 @Component({
-  selector: 'app-lista',
+  selector: 'app-list',
   templateUrl: './list.component.html'
 })
 export class ListComponent implements OnInit {
