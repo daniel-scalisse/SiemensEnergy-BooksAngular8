@@ -4,6 +4,8 @@ import { ElementRef } from '@angular/core';
 import { FormBase } from 'src/app/base-class/form-base';
 import { Gender } from './gender';
 
+import { StringUtil } from 'src/app/utils/string-util';
+
 export abstract class GenderFormBase extends FormBase {
 
     gender: Gender;
@@ -48,6 +50,6 @@ export abstract class GenderFormBase extends FormBase {
     }
 
     public clearTextFields() {
-        this.gender.Name = this.removeSpaces(this.gender.Name);
+        this.gender.Name = StringUtil.RemoveSpaces(this.gender.Name);
     }
 }

@@ -2,9 +2,11 @@ import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@ang
 import { ElementRef } from '@angular/core';
 
 import { FormBase } from 'src/app/base-class/form-base';
-import { KeyValueInt } from 'src/app/base-dto/keyValueInt';
 import { Book } from './book';
+
+import { KeyValueInt } from 'src/app/base-dto/keyValueInt';
 import { ConvertFile } from 'src/app/utils/convert-file';
+import { StringUtil } from 'src/app/utils/string-util';
 
 export abstract class BookFormBase extends FormBase {
 
@@ -166,10 +168,10 @@ export abstract class BookFormBase extends FormBase {
     }
 
     public clearTextFields() {
-        this.book.Title = this.removeSpaces(this.book.Title);
-        this.book.Subtitle = this.removeSpaces(this.book.Subtitle);
-        this.book.ISBN = this.removeSpaces(this.book.ISBN);
-        this.book.Barcode = this.removeSpaces(this.book.Barcode);
-        this.book.Observation = this.removeSpaces(this.book.Observation);
+        this.book.Title = StringUtil.RemoveSpaces(this.book.Title);
+        this.book.Subtitle = StringUtil.RemoveSpaces(this.book.Subtitle);
+        this.book.ISBN = StringUtil.RemoveSpaces(this.book.ISBN);
+        this.book.Barcode = StringUtil.RemoveSpaces(this.book.Barcode);
+        this.book.Observation = StringUtil.RemoveSpaces(this.book.Observation);
     }
 }

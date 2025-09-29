@@ -33,12 +33,4 @@ export abstract class FormBase {
         this.displayMessage = this.genericValidator.processMessages(formGroup);
         this.unsavedChanges = true;
     }
-
-    protected removeSpaces(value: string) {
-        value = value.trim();
-        while (value.indexOf("  ") > -1) {
-            value = value.replace('  ', ' ');
-        }
-        return value;
-    }
 }

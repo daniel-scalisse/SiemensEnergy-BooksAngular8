@@ -4,6 +4,8 @@ import { ElementRef } from '@angular/core';
 import { FormBase } from 'src/app/base-class/form-base';
 import { Author } from './author';
 
+import { StringUtil } from 'src/app/utils/string-util';
+
 export abstract class AuthorFormBase extends FormBase {
 
     author: Author;
@@ -48,6 +50,6 @@ export abstract class AuthorFormBase extends FormBase {
     }
 
     public clearTextFields() {
-        this.author.Name = this.removeSpaces(this.author.Name);
+        this.author.Name = StringUtil.RemoveSpaces(this.author.Name);
     }
 }
