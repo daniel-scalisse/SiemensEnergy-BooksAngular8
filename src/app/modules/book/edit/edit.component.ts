@@ -46,14 +46,14 @@ export class EditComponent extends BookFormBase implements OnInit, AfterViewInit
 
     super.configValidators(this.fb, 'U');
 
-    this.preencherForm();
+    this.setFormFields();
 
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
   }
 
-  preencherForm() {
+  setFormFields() {
     this.bookForm.patchValue({
       Id: this.book.Id,
       GenderId: this.book.GenderId,

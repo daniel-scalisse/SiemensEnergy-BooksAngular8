@@ -45,14 +45,14 @@ export class EditComponent extends GenderFormBase implements OnInit, AfterViewIn
 
     super.configValidators(this.fb);
 
-    this.preencherForm();
+    this.setFormFields();
 
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
   }
 
-  preencherForm() {
+  setFormFields() {
     this.genderForm.patchValue({
       Id: this.gender.Id,
       Name: this.gender.Name,

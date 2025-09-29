@@ -45,14 +45,14 @@ export class EditComponent extends AuthorFormBase implements OnInit, AfterViewIn
 
     super.configValidators(this.fb);
 
-    this.preencherForm();
+    this.setFormFields();
 
     setTimeout(() => {
       this.spinner.hide();
     }, 1000);
   }
 
-  preencherForm() {
+  setFormFields() {
     this.authorForm.patchValue({
       Id: this.author.Id,
       Name: this.author.Name,
