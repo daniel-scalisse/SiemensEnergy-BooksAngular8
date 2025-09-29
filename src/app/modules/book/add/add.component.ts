@@ -38,7 +38,7 @@ export class AddComponent extends BookFormBase implements OnInit, AfterViewInit 
         error => this.processError(error)
       );
 
-    super.configValidators(this.fb, 'I');
+    super.configureValidators(this.fb, 'I');
   }
 
   ngAfterViewInit(): void {

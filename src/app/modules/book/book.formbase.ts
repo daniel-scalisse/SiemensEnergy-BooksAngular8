@@ -117,7 +117,7 @@ export abstract class BookFormBase extends FormBase {
         super.configureBaseFormValidation(formInputElements, this.bookForm);
     }
 
-    protected configValidators(fb: FormBuilder, action: string) {
+    protected configureValidators(fb: FormBuilder, action: string) {
 
         this.bookForm = fb.group({
             Id: 0,

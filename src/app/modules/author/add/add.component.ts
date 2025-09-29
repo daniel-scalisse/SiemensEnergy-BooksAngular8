@@ -25,7 +25,7 @@ export class AddComponent extends AuthorFormBase implements OnInit, AfterViewIni
   }
 
   ngOnInit() {
-    super.configValidators(this.fb);
+    super.configureValidators(this.fb);
   }
 
   ngAfterViewInit(): void {

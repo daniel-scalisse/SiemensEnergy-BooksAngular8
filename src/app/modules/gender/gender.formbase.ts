@@ -37,7 +37,7 @@ export abstract class GenderFormBase extends FormBase {
         super.configureBaseFormValidation(formInputElements, this.genderForm);
     }
 
-    protected configValidators(fb: FormBuilder) {
+    protected configureValidators(fb: FormBuilder) {
         this.genderForm = fb.group({
             Id: 0,
             Name: ['', [Validators.required, Validators.minLength(this.minLengthName), Validators.maxLength(this.maxLengthName)]],

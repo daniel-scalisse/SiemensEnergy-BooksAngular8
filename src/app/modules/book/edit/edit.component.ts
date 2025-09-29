@@ -44,7 +44,7 @@ export class EditComponent extends BookFormBase implements OnInit, AfterViewInit
   ngOnInit() {
     this.spinner.show();
 
-    super.configValidators(this.fb, 'U');
+    super.configureValidators(this.fb, 'U');
 
     this.setFormFields();
 

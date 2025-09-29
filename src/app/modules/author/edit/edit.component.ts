@@ -43,7 +43,7 @@ export class EditComponent extends AuthorFormBase implements OnInit, AfterViewIn
   ngOnInit() {
     this.spinner.show();
 
-    super.configValidators(this.fb);
+    super.configureValidators(this.fb);
 
     this.setFormFields();
 

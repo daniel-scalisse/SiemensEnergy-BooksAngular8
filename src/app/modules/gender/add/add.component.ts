@@ -25,7 +25,7 @@ export class AddComponent extends GenderFormBase implements OnInit, AfterViewIni
   }
 
   ngOnInit() {
-    super.configValidators(this.fb);
+    super.configureValidators(this.fb);
   }
 
   ngAfterViewInit(): void {
