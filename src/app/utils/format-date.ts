@@ -10,7 +10,7 @@ export class FormatDate {
 
     static ToBr(d: Date): string {
         if (d != null && d.toString() != "")
-            return formatDate(d, 'yyyy-MM-dd', 'br');
+            return formatDate(d, 'yyyy-MM-dd', 'pt');
         return "";
     }
 }
@@ -19,13 +19,13 @@ export class FormatDateTime {
 
     static ToEn(dt: Date): string {
         if (dt != null && dt.toString() != "")
-            return formatDate(dt, 'yyyy-MM-dd HH:mm:ss.SSS', 'en');
+            return formatDate(dt, 'MM/dd/yyyy HH:mm:ss.SSS', 'en');
         return "";
     }
 
     static ToBr(dt: Date): string {
         if (dt != null && dt.toString() != "")
-            return formatDate(dt, 'yyyy-MM-dd HH:mm:ss.SSS', 'br');
+            return formatDate(dt, 'dd/MM/yyyy HH:mm:ss.SSS', 'pt');
         return "";
     }
 }
