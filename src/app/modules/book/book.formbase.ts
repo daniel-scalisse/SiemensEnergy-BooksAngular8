@@ -113,7 +113,7 @@ export abstract class BookFormBase extends FormBase {
         super.configureBaseValidationMessages(this.validationMessages);
     }
 
-    protected configurarValidacaoFormulario(formInputElements: ElementRef[]) {
+    protected configureFormValidation(formInputElements: ElementRef[]) {
         super.configureBaseFormValidation(formInputElements, this.bookForm);
     }
 

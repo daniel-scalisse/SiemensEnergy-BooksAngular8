@@ -76,7 +76,7 @@ export class EditComponent extends BookFormBase implements OnInit, AfterViewInit
   }
 
   ngAfterViewInit(): void {
-    super.configurarValidacaoFormulario(this.formInputElements);
+    super.configureFormValidation(this.formInputElements);
   }
 
   save() {

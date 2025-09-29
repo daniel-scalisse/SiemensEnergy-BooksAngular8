@@ -33,7 +33,7 @@ export abstract class AuthorFormBase extends FormBase {
         super.configureBaseValidationMessages(this.validationMessages);
     }
 
-    protected configurarValidacaoFormulario(formInputElements: ElementRef[]) {
+    protected configureFormValidation(formInputElements: ElementRef[]) {
         super.configureBaseFormValidation(formInputElements, this.authorForm);
     }
 

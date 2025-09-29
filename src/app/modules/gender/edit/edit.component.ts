@@ -62,7 +62,7 @@ export class EditComponent extends GenderFormBase implements OnInit, AfterViewIn
   }
 
   ngAfterViewInit() {
-    super.configurarValidacaoFormulario(this.formInputElements);
+    super.configureFormValidation(this.formInputElements);
   }
 
   save() {
