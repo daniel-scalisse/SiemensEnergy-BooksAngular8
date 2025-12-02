@@ -4,7 +4,9 @@ import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { BookView, BookEdit } from '../book';
 import { BookService } from './book.service';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class BookViewResolve implements Resolve<BookView> {
 
     constructor(private service: BookService) { }
@@ -14,7 +16,9 @@ export class BookViewResolve implements Resolve<BookView> {
     }
 }
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class BookEditResolve implements Resolve<BookEdit> {
 
     constructor(private service: BookService) { }

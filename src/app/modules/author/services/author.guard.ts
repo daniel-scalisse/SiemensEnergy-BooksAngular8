@@ -4,7 +4,9 @@ import { CanActivate, CanDeactivate, Router, ActivatedRouteSnapshot } from '@ang
 import { AddComponent } from '../add/add.component';
 import { BaseGuard } from 'src/app/services/base.guard';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AuthorGuard extends BaseGuard implements CanActivate, CanDeactivate<AddComponent> {
 
     constructor(protected router: Router) { super(router); }

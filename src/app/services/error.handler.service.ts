@@ -7,7 +7,9 @@ import { catchError } from 'rxjs/operators';
 
 import { LocalStorageUtils } from '../utils/localstorage';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class ErrorInterceptor implements HttpInterceptor {
 
     constructor(private router: Router) { }

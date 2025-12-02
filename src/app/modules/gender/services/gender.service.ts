@@ -8,7 +8,9 @@ import { BaseService } from 'src/app/services/base.service';
 import { Gender, GenderDetails } from '../gender';
 import { PagedDTO } from 'src/app/base-dto/pagedDTO';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class GenderService extends BaseService {
 
     constructor(private http: HttpClient) { super(); }

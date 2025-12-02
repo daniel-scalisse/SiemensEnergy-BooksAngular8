@@ -8,7 +8,9 @@ import { BaseService } from 'src/app/services/base.service';
 import { Book, BookEdit, BookLists, BookView } from '../book';
 import { PagedDTO } from 'src/app/base-dto/pagedDTO';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class BookService extends BaseService {
 
     constructor(private http: HttpClient) { super(); }

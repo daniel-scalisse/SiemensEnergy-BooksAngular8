@@ -4,7 +4,9 @@ import { CanDeactivate, CanActivate, Router } from '@angular/router';
 import { LocalStorageUtils } from 'src/app/utils/localstorage';
 import { RegisterComponent } from '../register/register.component';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AccountGuard implements CanDeactivate<RegisterComponent>, CanActivate {
 
     localStorageUtils = new LocalStorageUtils();

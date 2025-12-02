@@ -4,7 +4,9 @@ import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { AuthorDetails } from '../author';
 import { AuthorService } from './author.service';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AuthorResolve implements Resolve<AuthorDetails> {
 
     constructor(private service: AuthorService) { }

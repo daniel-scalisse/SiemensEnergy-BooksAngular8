@@ -4,7 +4,9 @@ import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 import { GenderDetails } from '../gender';
 import { GenderService } from './gender.service';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class GenderResolve implements Resolve<GenderDetails> {
 
     constructor(private service: GenderService) { }

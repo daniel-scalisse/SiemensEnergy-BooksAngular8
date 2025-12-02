@@ -8,7 +8,9 @@ import { BaseService } from 'src/app/services/base.service';
 import { Author, AuthorDetails } from '../author';
 import { PagedDTO } from 'src/app/base-dto/pagedDTO';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+})
 export class AuthorService extends BaseService {
 
     constructor(private http: HttpClient) { super(); }
