@@ -43,8 +43,8 @@ export class RegisterComponent extends FormBase implements OnInit, AfterViewInit
     this.validationMessages = {
       email: {
         required: 'Enter the E-mail',
-        minlength: 'The Password must have at least ' + this.minLengthEmail + ' characters',
-        maxlength: 'The Password must be at most ' + this.maxLengthEmail + ' characters'
+        minlength: 'The E-mail must have at least ' + this.minLengthEmail + ' characters',
+        maxlength: 'The E-mail must be at most ' + this.maxLengthEmail + ' characters'
       },
       password: {
         required: 'Enter the Password',
