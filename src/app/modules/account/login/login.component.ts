@@ -73,8 +73,8 @@ export class LoginComponent extends AccountFormBase implements OnInit, AfterView
 
       this.accountService.login(this.user)
         .subscribe(
-          sucesso => { this.processSuccess(sucesso) },
-          falha => { this.processError(falha) }
+          success => { this.processSuccess(success) },
+          failure => { this.processError(failure) }
         );
     }
   }
