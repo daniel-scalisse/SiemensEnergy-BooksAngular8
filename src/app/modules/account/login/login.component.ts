@@ -99,8 +99,8 @@ export class LoginComponent extends AccountFormBase implements OnInit, AfterView
     }
   }
 
-  processError(fail: any) {
-    this.errors = fail.error.errors;
+  processError(failure: any) {
+    this.errors = failure.error.errors;
     this.toastr.error('An error occurred!', 'Ops :(');
   }
 }
