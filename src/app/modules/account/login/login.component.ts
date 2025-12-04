@@ -4,26 +4,21 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import { ToastrService } from 'ngx-toastr';
 
+import { AccountFormBase } from '../account.formbase';
+
 import { User } from '../user';
 import { AccountService } from '../services/account.service';
-import { FormBase } from 'src/app/base-class/form-base';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html'
 })
-export class LoginComponent extends FormBase implements OnInit, AfterViewInit {
+export class LoginComponent extends AccountFormBase implements OnInit, AfterViewInit {
   @ViewChildren(FormControlName, { read: ElementRef }) formInputElements: ElementRef[];
 
   errors: any[] = [];
   loginForm: FormGroup;
   user: User;
-
-  minLengthEmail: number = 10;
-  maxLengthEmail: number = 100;
-
-  minLengthPassword: number = 6;
-  maxLengthPassword: number = 15;
 
   returnUrl: string;
 

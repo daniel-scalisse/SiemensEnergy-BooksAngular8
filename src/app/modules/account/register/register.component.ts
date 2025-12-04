@@ -4,15 +4,16 @@ import { Router } from '@angular/router';
 
 import { ToastrService } from 'ngx-toastr';
 
+import { AccountFormBase } from '../account.formbase';
+
 import { User } from '../user';
 import { AccountService } from '../services/account.service';
-import { FormBase } from 'src/app/base-class/form-base';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html'
 })
-export class RegisterComponent extends FormBase implements OnInit, AfterViewInit {
+export class RegisterComponent extends AccountFormBase implements OnInit, AfterViewInit {
 
   /*
   É um selector que pega os dados do DOM.
@@ -25,12 +26,6 @@ export class RegisterComponent extends FormBase implements OnInit, AfterViewInit
   errors: any[] = [];
   registerForm: FormGroup;
   user: User;
-
-  minLengthEmail: number = 10;
-  maxLengthEmail: number = 100;
-
-  minLengthPassword: number = 6;
-  maxLengthPassword: number = 15;
 
   constructor(private fb: FormBuilder,
     private accountService: AccountService,
