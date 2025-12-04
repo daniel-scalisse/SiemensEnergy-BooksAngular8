@@ -39,6 +39,7 @@ export class LoginComponent extends AccountFormBase implements OnInit, AfterView
     this.validationMessages = {
       email: {
         required: 'Enter the E-mail',
+        email: 'Invalid E-mail',
         minlength: 'The E-mail must have at least ' + this.minLengthEmail + ' characters',
         maxlength: 'The E-mail must be at most ' + this.maxLengthEmail + ' characters'
       },
@@ -57,7 +58,7 @@ export class LoginComponent extends AccountFormBase implements OnInit, AfterView
   ngOnInit(): void {
 
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email, Validators.minLength(this.minLengthEmail), Validators.maxLength(this.maxLengthEmail)]],
       password: ['', [Validators.required, Validators.minLength(this.minLengthPassword), Validators.maxLength(this.maxLengthPassword)]]
     });
   }
