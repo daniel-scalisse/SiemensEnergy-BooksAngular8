@@ -73,11 +73,12 @@ export class LoginComponent extends AccountFormBase implements OnInit, AfterView
     if (this.loginForm.dirty && this.loginForm.valid) {
       this.user = Object.assign({}, this.user, this.loginForm.value);
 
-      this.accountService.login(this.user)
-        .subscribe(
-          success => { this.processSuccess(success) },
-          failure => { this.processError(failure) }
-        );
+      const observer = {
+        next: (success: any) => this.processSuccess(success),
+        error: (failure: any) => this.processError(failure)
+      };
+
+      this.accountService.login(this.user).subscribe(observer);
     }
   }
 
