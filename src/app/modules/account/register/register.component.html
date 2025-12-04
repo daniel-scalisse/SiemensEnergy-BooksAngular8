@@ -8,7 +8,8 @@
             <label class="col-md-2 control-label">E-mail</label>
             <div class="col-md-10">
                 <input class="form-control" id="email" type="text" placeholder="E-mail (required)"
-                    formControlName="email" [ngClass]="{'is-invalid': displayMessage.email }" />
+                    formControlName="email" [ngClass]="{'is-invalid': displayMessage.email }"
+                    maxlength="{{ maxLengthEmail }}" title="Maximum {{ maxLengthEmail }} characters." />
                 <span class="text-danger" *ngIf="displayMessage.email">
                     <p [innerHTML]="displayMessage.email"></p>
                 </span>
@@ -18,7 +19,8 @@
             <label class="col-md-2 control-label">Password</label>
             <div class="col-md-10">
                 <input class="form-control" id="password" type="password" placeholder="Password (required)"
-                    formControlName="password" [ngClass]="{'is-invalid': displayMessage.password }" />
+                    formControlName="password" [ngClass]="{'is-invalid': displayMessage.password }"
+                    maxlength="{{ maxLengthPassword }}" title="Maximum {{ maxLengthPassword }} characters." />
                 <span class="text-danger" *ngIf="displayMessage.password">
                     <p [innerHTML]="displayMessage.password"></p>
                 </span>
@@ -29,7 +31,8 @@
             <div class="col-md-10">
                 <input class="form-control" id="confirmPassword" type="password"
                     placeholder="Confirm Password (required)" formControlName="confirmPassword"
-                    [ngClass]="{'is-invalid': displayMessage.confirmPassword }" />
+                    [ngClass]="{'is-invalid': displayMessage.confirmPassword }" maxlength="{{ maxLengthPassword }}"
+                    title="Maximum {{ maxLengthPassword }} characters." />
                 <span class="text-danger" *ngIf="displayMessage.confirmPassword">
                     <p [innerHTML]="displayMessage.confirmPassword"></p>
                 </span>
