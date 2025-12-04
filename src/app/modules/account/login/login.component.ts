@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChildren, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChildren, ElementRef, Renderer2 } from '@angular/core';
 import { FormControlName, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -32,7 +32,8 @@ export class LoginComponent extends AccountFormBase implements OnInit, AfterView
     private accountService: AccountService,
     private router: Router,
     private route: ActivatedRoute,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private renderer: Renderer2) {
 
     super();
 
@@ -65,6 +66,7 @@ export class LoginComponent extends AccountFormBase implements OnInit, AfterView
 
   ngAfterViewInit(): void {
     super.configureBaseFormValidation(this.formInputElements, this.loginForm);
+    this.renderer.selectRootElement('#email').focus();
   }
 
   login() {
