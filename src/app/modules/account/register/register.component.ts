@@ -80,7 +80,7 @@ export class RegisterComponent extends AccountFormBase implements OnInit, AfterV
       //O método é uma Observable e precisa fazer o subscribe.
       this.accountService.registrarUsuario(this.user)
         .subscribe(
-          success => { this.processarSucesso(success) },
+          success => { this.processSuccess(success) },
           failure => { this.processarFalha(failure) }
         );
 
@@ -88,7 +88,7 @@ export class RegisterComponent extends AccountFormBase implements OnInit, AfterV
     }
   }
 
-  processarSucesso(response: any) {
+  processSuccess(response: any) {
     this.registerForm.reset();
     this.errors = [];
 
