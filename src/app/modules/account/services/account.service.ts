@@ -14,7 +14,7 @@ export class AccountService extends BaseService {
 
     constructor(private http: HttpClient) { super(); }
 
-    registrarUsuario(user: User): Observable<User> {
+    register(user: User): Observable<User> {
         /*
         O parâmetro de header deveria ter uma implementação, mas é opcional.
         O pipe processa o retorno com map.

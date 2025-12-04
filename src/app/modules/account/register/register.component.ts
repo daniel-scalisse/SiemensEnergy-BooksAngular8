@@ -83,7 +83,7 @@ export class RegisterComponent extends AccountFormBase implements OnInit, AfterV
         error: (failure: any) => this.processError(failure)
       };
 
-      this.accountService.registrarUsuario(this.user).subscribe(observer);
+      this.accountService.register(this.user).subscribe(observer);
 
       this.unsavedChanges = false;
     }
