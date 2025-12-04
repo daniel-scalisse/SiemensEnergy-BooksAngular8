@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+
 import { AccountRoutingModule } from './account.route';
 import { AccountAppComponent } from './account.app.component';
 import { RegisterComponent } from './register/register.component';
@@ -27,6 +29,7 @@ import { AccountGuard } from './services/account.guard';
     RouterModule,
     HttpClientModule,
     NgxSpinnerModule,
+    SharedModule,
     AccountRoutingModule
   ],
   providers: [
