@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChildren, ElementRef } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChildren, ElementRef, Renderer2 } from '@angular/core';
 import { FormControlName, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -30,7 +30,8 @@ export class RegisterComponent extends AccountFormBase implements OnInit, AfterV
   constructor(private fb: FormBuilder,
     private accountService: AccountService,
     private router: Router,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private renderer: Renderer2) {
 
     super();
 
@@ -68,6 +69,7 @@ export class RegisterComponent extends AccountFormBase implements OnInit, AfterV
 
   ngAfterViewInit(): void {
     super.configureBaseFormValidation(this.formInputElements, this.registerForm);
+    this.renderer.selectRootElement('#email').focus();
   }
 
   addAccount() {
