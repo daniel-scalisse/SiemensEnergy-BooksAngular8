@@ -96,16 +96,13 @@ export class RegisterComponent extends AccountFormBase implements OnInit, AfterV
     this.accountService.LocalStorage.saveLocalUserData(response);
 
     let toast = this.toastr.success('Registration completed successfully!', 'Welcome!!!');
-    if (toast) {
+    if (toast)
       /*
       Toast retorna uma Observable, então usa subscribe pra criar um gatilho pra quando acontecer o evento.
       Depois do timeout faz o redirecionamento para a home.
       Dispara um evento e faz o subscribe nesse evento pra fazer uma ou mais ações.
       */
-      toast.onHidden.subscribe(() => {
-        this.router.navigate(['/home']);
-      });
-    }
+      toast.onHidden.subscribe(() => this.router.navigate(['/home']));
   }
 
   processError(failure: any) {
