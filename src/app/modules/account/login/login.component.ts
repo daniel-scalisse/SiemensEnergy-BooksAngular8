@@ -91,11 +91,11 @@ export class LoginComponent extends AccountFormBase implements OnInit, AfterView
 
     let toast = this.toastr.success('Login successful!', 'Welcome!!!');
     if (toast) {
-      toast.onHidden.subscribe(() => {
+      toast.onHidden.subscribe(() =>
         this.returnUrl
           ? this.router.navigate([this.returnUrl])
-          : this.router.navigate(['/home']);
-      });
+          : this.router.navigate(['/home'])
+      );
     }
   }
 
