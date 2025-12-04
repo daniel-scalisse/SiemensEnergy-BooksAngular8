@@ -81,7 +81,7 @@ export class RegisterComponent extends AccountFormBase implements OnInit, AfterV
       this.accountService.registrarUsuario(this.user)
         .subscribe(
           success => { this.processSuccess(success) },
-          failure => { this.processarFalha(failure) }
+          failure => { this.processError(failure) }
         );
 
       this.unsavedChanges = false;
@@ -107,8 +107,8 @@ export class RegisterComponent extends AccountFormBase implements OnInit, AfterV
     }
   }
 
-  processarFalha(fail: any) {
-    this.errors = fail.error.errors;
+  processError(failure: any) {
+    this.errors = failure.error.errors;
     this.toastr.error('An error occurred!', 'Ops :(');
   }
 }
